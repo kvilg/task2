@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:msg="http://www.Monson-Haefel.com/jwsbook"
+    targetNamespace="http://www.Monson-Haefel.com/jwsbook"
+    xmlns:bi="http://www.Monson-Haefel.com/jwsbook" 
+    xmlns:bt="http://www.Monson-Haefel.com/jwsbook" 
+    xmlns:hd="http://www.Monson-Haefel.com/jwsbook" 
+    xmlns:ns1="http://www.Monson-Haefel.com/jwsbook">
+
+
+
+    <element name="Message">
+        <complexType>
+            <sequence>
+                <element name="MessageHeader">
+                    <complexType>
+                        <sequence>
+                            <element name="MessageId" type="string"/>
+                            <element name="Priority" type="string"/>
+                            <element name="Destination" type="string"/>
+                            <element name="Source" type="string"/>
+                            <element name="Version"/>
+                            <element name="ObjectLastChanged" type="string"/>
+                            <element name="Security" >
+                                <complexType>
+                                    <sequence>
+                                        <element name="Signature">
+                                            <complexType >
+                                                <sequence>
+                                                    <element name="Reference" type="string"/>
+                                                    <element name="Transform" type="string"/>
+                                                    <element name="Digest" type="string"/>
+                                                </sequence>
+                                            </complexType>
+                                        </element>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
+                </element>
+                <element name="MessageBody">
+                    <complexType>
+                        <sequence>
+                            <element name="PaymentDoc">
+                                <complexType>
+                                    <sequence>
+                                        <element name="PaymentOrderRub">
+                                            <complexType>
+                                                <sequence>
+                                                    <element name="ObjectID" type="string"/>
+                                                    <element name="LocalIDSet">
+                                                        <complexType>
+                                                            <sequence>
+                                                                <element name="LocalID" type="string"/>
+                                                                <element name="ComponentID" type="string"/>
+                                                            </sequence>
+                                                        </complexType>
+                                                    </element>
+                                                    <element name="OrderDate" type="string"/>
+                                                    <element name="OrderNo" type="string"/>
+                                                    <element name="ValueDate" type="string"/>
+                                                    <element name="Debit" type="string"/>
+                                                    <element name="Credit" type="string"/>
+                                                    <element name="RubAmt" type="string"/>
+                                                </sequence>
+                                            </complexType>
+                                        </element>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>   
+        </complexType>
+    </element>
+  
+ 
+
+  
+  
+</schema>
